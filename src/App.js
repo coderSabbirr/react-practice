@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Device from './components/Device';
 
 function App() {
+  const[steps,setSetps] =useState(0);
+  const handleIncreaceSteps= () =>{
+    const newStepsCount= steps + 1;
+    setSetps(newStepsCount);
+  }
+  // useEffect(()=>{
+  //   console.log("count");
+  // },[steps])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>My steps: {steps}</h3>
+      <button onClick={handleIncreaceSteps}>Walk</button>
+     <Device name="Iphone 13 pro" price="15000" steps={steps}></Device>
     </div>
   );
 }
